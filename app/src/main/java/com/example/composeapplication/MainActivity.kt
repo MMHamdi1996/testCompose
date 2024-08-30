@@ -47,68 +47,25 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ShowUi() {
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .background(Color.Green)
+
         ) {
             Text(
-                text = "Mahdi", color = Color.Green, modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 32.dp)
-                    .background(Color.DarkGray)
+                text = "Mahdi", color = Color.Red, modifier = Modifier
+                    .fillMaxWidth(0.5f)
+                    .padding(8.dp)
+                    .background(Color.DarkGray), fontSize = 25.sp
+            )
+            Text(
+                text = "Hamdi", color = Color.Gray, modifier = Modifier
+                    .fillMaxWidth(1f)
+                    .padding(8.dp)
+                    .background(Color.DarkGray), fontSize = 25.sp
             )
 
-            Button(
-                onClick = {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "سلام خوبی ؟",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                },
-                modifier = Modifier
-                    .width(200.dp)
-                    .align(Alignment.CenterHorizontally), shape = RoundedCornerShape(20.dp),
-                colors = ButtonDefaults.buttonColors(Color.Cyan)
-            ) {
-                Text(
-                    text = "کلیک", modifier = Modifier
-                        .padding(10.dp), color = Color.Black, fontSize = 24.sp
-                )
-            }
-
-            Surface(shape = CircleShape) {
-                Image(painter = painterResource(id = R.drawable.android), contentDescription =null ,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp))
-            }
-            Surface(shape = CircleShape) {
-                Image(painter = painterResource(id = R.drawable.android), contentDescription =null ,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp))
-            }
-            Surface(shape = CircleShape) {
-                Image(painter = painterResource(id = R.drawable.android), contentDescription =null ,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp))
-            }
-            Surface(shape = CircleShape) {
-                Image(painter = painterResource(id = R.drawable.android), contentDescription =null ,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp))
-            }
-            Surface(shape = CircleShape) {
-                Image(painter = painterResource(id = R.drawable.android), contentDescription =null ,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp))
-            }
 
         }
     }
