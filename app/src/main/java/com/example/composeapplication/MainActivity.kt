@@ -24,6 +24,10 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,36 +51,33 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ShowUi() {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Green)
-
+                .background(Color.Green),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            var text: String by remember {
+                mutableStateOf("Mahdi")
+            }
+
             Text(
-                text = "Mahdi", color = Color.Red, modifier = Modifier
-                    .fillMaxWidth(0.5f)
-                    .padding(8.dp)
-                    .background(Color.DarkGray), fontSize = 25.sp
-            )
-            Text(
-                text = "Hamdi", color = Color.Gray, modifier = Modifier
-                    .fillMaxWidth(1f)
-                    .padding(8.dp)
-                    .background(Color.DarkGray), fontSize = 25.sp
+                text = text, modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+                    .background(Color.DarkGray)
+                    .padding(20.dp),
+                color = Color.White,
+                fontSize = 28.sp
             )
 
-
+            Button(onClick = {
+                text = "سلام"
+            }) {
+                Text(text = "Click!", fontSize = 28.sp)
+            }
         }
     }
-
-    @Preview(
-        showBackground = true,
-        device = Devices.PIXEL_XL,
-        showSystemUi = true
-    )
-    @Composable
-    fun ShowTestText() {
-        ShowUi()
-    }
 }
+
