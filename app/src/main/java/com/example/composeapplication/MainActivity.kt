@@ -19,6 +19,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Surface
@@ -51,33 +53,23 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ShowUi() {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Green),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-            var text: String by remember {
-                mutableStateOf("Mahdi")
-            }
-
-            Text(
-                text = text, modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-                    .background(Color.DarkGray)
-                    .padding(20.dp),
-                color = Color.White,
-                fontSize = 28.sp
-            )
-
-            Button(onClick = {
-                text = "سلام"
-            }) {
-                Text(text = "Click!", fontSize = 28.sp)
-            }
-        }
+       Card (modifier = Modifier
+           .padding(20.dp)
+           , elevation = CardDefaults
+               .elevatedCardElevation(28.dp)) {
+           Column(
+               modifier = Modifier
+                   .background(Color.White),
+               horizontalAlignment = Alignment.CenterHorizontally
+           ) {
+               Image(painter = painterResource(id = R.drawable.android), contentDescription = null ,
+                   modifier = Modifier
+                       .padding(bottom = 12.dp))
+               Button(onClick = { /*TODO*/ }) {
+                   Text(text = "Click" , fontSize = 38.sp)
+               }
+           }
+       }
     }
 }
 
